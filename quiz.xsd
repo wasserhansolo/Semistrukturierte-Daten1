@@ -6,7 +6,7 @@
 <xsd:element ref="overview" minOccurs="0" maxOccurs="1"/>
 <xsd:element ref="categories" minOccurs="0" maxOccurs="1"/>
 <xsd:element ref="questions" minOccurs="0" maxOccurs="1"/>
-<xsd:element name="users" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="users" minOccurs="0" maxOccurs="1"/>
 <xsd:element name="games" minOccurs="0" maxOccurs="1"/>
 </xsd:sequence>
 </xsd:complexType>
@@ -19,7 +19,41 @@
 		<xsd:selector xpath="./questions/question/group" />
 		<xsd:field xpath="@name" />
 	</xsd:keyref>
+	<xsd:key name="usernamekey">
+                  <xsd:selector xpath="./users/user" />
+                  <xsd:field xpath="@name" />
+         </xsd:key>
 </xsd:element>
+
+<xsd:element name="users">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="user" minOccurs="0" maxOccurs="unbounded" />
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="user">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="password" type="xsd:string" />
+<xsd:element name="firstname" type="xsd:string" />
+<xsd:element name="lastname" type="xsd:string" />
+<xsd:element name="birthdate" type="xsd:date" />
+</xsd:sequence>
+<xsd:attribute name="name" />
+<xsd:attribute name="gender" >
+<xsd:simpleType>
+<xsd:restriction base="xsd:string" >
+<xsd:enumeration value="male" />
+<xsd:enumeration value="female" />
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:attribute>
+</xsd:complexType>
+</xsd:element>
+
+
 
 <xsd:element name="overview" >
 <xsd:complexType mixed="true">

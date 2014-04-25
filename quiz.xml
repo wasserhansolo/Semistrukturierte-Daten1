@@ -10,4 +10,12 @@
 			<group name="2"/>
 		</question>
 	</questions>
+<users>
+ 	<user name="test" gender="female"> 
+		<password> asdf </password>
+		<firstname> asdf </firstname>
+		<lastname> asdf </lastname>
+		<birthdate>1984-08-02</birthdate>
+	</user>
+</users>
 </quiz>
