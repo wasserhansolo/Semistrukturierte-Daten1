@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="quiz">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="overview" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="categories" minOccurs="0" maxOccurs="1"/>
+<xsd:element ref="questions" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="users" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="games" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+
+	<xsd:key name="AnswerIdKey">
+         	<xsd:selector xpath="./categories/category" />
+          	<xsd:field xpath="@name" />
+      	</xsd:key>
+	<xsd:keyref name="AnswerIdKeyRef" refer="AnswerIdKey">
+		<xsd:selector xpath="./questions/question/group" />
+		<xsd:field xpath="@name" />
+	</xsd:keyref>
+</xsd:element>
+
+<xsd:element name="overview" >
+<xsd:complexType mixed="true">
+<xsd:choice minOccurs="0" maxOccurs="unbounded">
+
+<xsd:element name="b" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="em" minOccurs="0" maxOccurs="1"/>
+
+</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="categories">
+<xsd:complexType>
+<xsd:choice minOccurs="0" maxOccurs="unbounded">
+<xsd:element name="category" type="categorytype"/>
+</xsd:choice>
+</xsd:complexType>
+</xsd:element>
+
+
+<xsd:complexType name="categorytype" >
+<xsd:attribute name="name" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:element name="questions">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="question" type="questiontype" minOccurs="0" maxOccurs="1"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name="questiontype">
+	<xsd:sequence>
+		<xsd:element name="text" type="xsd:string"/>
+		<xsd:element name="choice" minOccurs="0" maxOccurs="unbounded" >
+			<xsd:complexType>
+				<xsd:attribute name="nr" />
+				<xsd:attribute name="correct" type="xsd:boolean"/>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="group" minOccurs="0" maxOccurs="unbounded" >
+			<xsd:complexType>
+				<xsd:attribute name="name" type="xsd:string" />
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:sequence>
+	<xsd:attribute name="id" />
+</xsd:complexType>
+
+
+
+</xsd:schema>

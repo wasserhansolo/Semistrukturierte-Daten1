@@ -1,0 +1,13 @@
+<quiz>
+	<overview><b></b> aqw<em> </em> <b> </b> </overview>
+	<categories><category name="1"/><category name="2"/></categories>
+	<questions>
+		<question id="1"> 
+			<text> asdf </text>
+			<choice nr="1" correct="true"/>
+			<choice/>
+			<group name="1"/>
+			<group name="2"/>
+		</question>
+	</questions>
+</quiz>
