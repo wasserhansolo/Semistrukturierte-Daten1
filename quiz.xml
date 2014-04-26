@@ -1,33 +1,87 @@
 <quiz>
 	<overview><b></b> aqw<em> </em> <b> </b> </overview>
-	<categories><category name="1"/><category name="2"/></categories>
+	<categories>
+		<category name="category 1"/>
+		<category name="category 2"/>
+		<category name="category 3"/>
+	</categories>
 	<questions>
 		<question id="1"> 
-			<text> asdf </text>
-			<choice nr="1" correct="true"/>
-			<choice/>
-			<group name="1"/>
-			<group name="2"/>
+			<text> First Question </text>
+			<choice nr="1" correct="true">Antwort 1 </choice>
+			<choice nr="2"> Antwort 2 </choice>
+			<choice nr="3"> Antwort 3 </choice>
+			<group name="category 1"/>
+			<group name="category 2"/>
 		</question>
+		<question id="2"> 
+                         <text> Second Question </text>
+                         <choice nr="1" correct="true">Antwort 1 </choice>
+                         <choice nr="2" correct="true"> Antwort 2 </choice>
+                         <choice nr="3"> Antwort 3 </choice>
+                         <group name="category 3"/>
+                </question>
+		<question id="3"> 
+                         <text> Third Question </text>
+                         <choice nr="1">Antwort 1 </choice>
+                         <choice nr="2"> Antwort 2 </choice>
+                         <choice nr="3" correct="true"> Antwort 3 </choice>
+                         <group name="category 2"/>
+                </question>
+		<question id="4">
+                          <text> Fourth Question </text>
+                          <choice nr="1">Antwort 1 </choice>
+                          <choice nr="2"> Antwort 2 </choice>
+                          <choice nr="3" correct="true"> Antwort 3 </choice>
+                          <group name="category 1"/>
+             	</question>
 	</questions>
 <users>
- 	<user name="test" gender="female"> 
+ 	<user name="user1" gender="female"> 
 		<password> asdf </password>
 		<firstname> asdf </firstname>
 		<lastname> asdf </lastname>
 		<birthdate>1984-08-02</birthdate>
 	</user>
-	 <user name="test2" gender="male">
+	 <user name="user2" gender="male">
                 <password> asdf </password>
                 <firstname> asdf </firstname>
                 <lastname> asdf </lastname>
-                <birthdate>1984-08-03</birthdate>
+                <birthdate>1983-09-03</birthdate>
+        </user>
+	<user name="user3" gender="female">
+                  <password> asdf </password>
+                  <firstname> asdf </firstname>
+                  <lastname> asdf </lastname>
+                  <birthdate>1981-03-01</birthdate>
         </user>
 </users>
 <games>
 	<game>
-		<gamer></gamer>
-		<round><answers><player ref="test2"><answer/></player></answers></round>
-	</game>
+		<gamer ref="user2"/>
+		<gamer ref="user1"/>
+		
+		<round>
+			<answers question="1">
+				<player ref="user2"><answer nr="2" time="3"/></player>
+				<player ref="user1"><answer nr="3" time="2"/></player>
+			</answers>
+			<answers question="2">
+				<player ref="user1"><answer nr="3" time="2"/></player>
+				<player ref="user2"><answer nr="2" time="3"/></player>
+			</answers>
+		</round>
+		<round>
+                         <answers question="3">
+                                 <player ref="user1"><answer nr="3" time="3"/></player>
+                                 <player ref="user2"><answer nr="2" time="2"/></player>
+                         </answers>
+                         <answers question="4">
+                                 <player ref="user2"><answer nr="2" time="2"/></player>
+                                 <player ref="user1"><answer nr="3" time="3"/></player>
+                         </answers>
+                 </round>
+	
+</game>
 </games>
 </quiz>

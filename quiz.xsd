@@ -52,7 +52,7 @@
 
 <xsd:element name="gamer">
 <xsd:complexType>
-<xsd:attribute name="ref" type="xsd:string" />
+<xsd:attribute name="ref" type="xsd:string" use="required" />
 </xsd:complexType>
 </xsd:element>
 
@@ -69,7 +69,7 @@
 <xsd:sequence>
 <xsd:element ref="player" minOccurs="1" maxOccurs="2" />
 </xsd:sequence>
-<xsd:attribute name="questions" type="xsd:integer" />
+<xsd:attribute name="question" type="xsd:integer" use="required"/>
 </xsd:complexType>
 </xsd:element>
 
@@ -78,14 +78,14 @@
 <xsd:sequence>
 <xsd:element ref="answer" minOccurs="0" maxOccurs="unbounded" />
 </xsd:sequence>
-<xsd:attribute name="ref" type="xsd:string" />
+<xsd:attribute name="ref" type="xsd:string" use="required"/>
 </xsd:complexType>
 </xsd:element>
 
 <xsd:element name="answer">
 <xsd:complexType>
-<xsd:attribute name="nr" type="xsd:integer" />
-<xsd:attribute name="time" type="xsd:integer" />
+<xsd:attribute name="nr" type="xsd:integer" use="required" />
+<xsd:attribute name="time" type="xsd:integer" use="required" />
 </xsd:complexType>
 </xsd:element>
 
@@ -105,8 +105,8 @@
 <xsd:element name="lastname" type="xsd:string" />
 <xsd:element name="birthdate" type="xsd:date" />
 </xsd:sequence>
-<xsd:attribute name="name" type="xsd:string"/>
-<xsd:attribute name="gender" >
+<xsd:attribute name="name" type="xsd:string" use="required"/>
+<xsd:attribute name="gender" use="required" >
 <xsd:simpleType>
 <xsd:restriction base="xsd:string" >
 <xsd:enumeration value="male" />
@@ -140,13 +140,13 @@
 
 
 <xsd:complexType name="categorytype" >
-<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="name" type="xsd:string" use="required"/>
 </xsd:complexType>
 
 <xsd:element name="questions">
 <xsd:complexType>
 <xsd:sequence>
-<xsd:element name="question" type="questiontype" minOccurs="0" maxOccurs="1"/>
+<xsd:element name="question" type="questiontype" minOccurs="0" maxOccurs="unbounded"/>
 </xsd:sequence>
 </xsd:complexType>
 </xsd:element>
@@ -155,18 +155,24 @@
 	<xsd:sequence>
 		<xsd:element name="text" type="xsd:string"/>
 		<xsd:element name="choice" minOccurs="0" maxOccurs="unbounded" >
-			<xsd:complexType>
-				<xsd:attribute name="nr" />
-				<xsd:attribute name="correct" type="xsd:boolean"/>
+			<xsd:complexType mixed="true">
+				<xsd:attribute name="nr" use="required" />
+				<xsd:attribute name="correct">
+				<xsd:simpleType>
+				<xsd:restriction base="xsd:boolean">
+				<xsd:pattern value="true" />
+				</xsd:restriction>
+				</xsd:simpleType>
+				</xsd:attribute>
 			</xsd:complexType>
 		</xsd:element>
 		<xsd:element name="group" minOccurs="0" maxOccurs="unbounded" >
 			<xsd:complexType>
-				<xsd:attribute name="name" type="xsd:string" />
+				<xsd:attribute name="name" type="xsd:string" use="required" />
 			</xsd:complexType>
 		</xsd:element>
 	</xsd:sequence>
-	<xsd:attribute name="id" />
+	<xsd:attribute name="id" use="required" />
 </xsd:complexType>
 
 
