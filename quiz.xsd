@@ -168,11 +168,12 @@
 		</xsd:element>
 		<xsd:element name="group" minOccurs="0" maxOccurs="unbounded" >
 			<xsd:complexType>
-				<xsd:attribute name="name" type="xsd:string" use="required" />
-			</xsd:complexType>
+				<xsd:attribute name="name" type="xsd:string" use="required" />		
+	</xsd:complexType>
 		</xsd:element>
 	</xsd:sequence>
-	<xsd:attribute name="id" use="required" />
+	<xsd:attribute name="id" type="xsd:integer" use="required" />
+	<xsd:attribute name="maxtime" type="xsd:integer" use="required" />
 </xsd:complexType>
 
 

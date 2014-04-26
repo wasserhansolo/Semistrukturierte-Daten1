@@ -1,39 +1,39 @@
 <quiz>
 	<overview><b></b> aqw<em> </em> <b> </b> </overview>
 	<categories>
-		<category name="category 1"/>
-		<category name="category 2"/>
-		<category name="category 3"/>
+		<category name="category1"/>
+		<category name="category2"/>
+		<category name="category3"/>
 	</categories>
 	<questions>
-		<question id="1"> 
+		<question id="1" maxtime="30"> 
 			<text> First Question </text>
 			<choice nr="1" correct="true">Antwort 1 </choice>
 			<choice nr="2"> Antwort 2 </choice>
 			<choice nr="3"> Antwort 3 </choice>
-			<group name="category 1"/>
-			<group name="category 2"/>
+			<group name="category1"/>
+			<group name="category2"/>
 		</question>
-		<question id="2"> 
+		<question id="2" maxtime="30"> 
                          <text> Second Question </text>
                          <choice nr="1" correct="true">Antwort 1 </choice>
                          <choice nr="2" correct="true"> Antwort 2 </choice>
                          <choice nr="3"> Antwort 3 </choice>
-                         <group name="category 3"/>
+                         <group name="category3"/>
                 </question>
-		<question id="3"> 
+		<question id="3" maxtime="30"> 
                          <text> Third Question </text>
                          <choice nr="1">Antwort 1 </choice>
                          <choice nr="2"> Antwort 2 </choice>
                          <choice nr="3" correct="true"> Antwort 3 </choice>
-                         <group name="category 2"/>
+                         <group name="category2"/>
                 </question>
-		<question id="4">
+		<question id="4" maxtime="30">
                           <text> Fourth Question </text>
                           <choice nr="1">Antwort 1 </choice>
                           <choice nr="2"> Antwort 2 </choice>
                           <choice nr="3" correct="true"> Antwort 3 </choice>
-                          <group name="category 1"/>
+                          <group name="category1"/>
              	</question>
 	</questions>
 <users>
