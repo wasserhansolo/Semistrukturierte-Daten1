@@ -17,5 +17,17 @@
 		<lastname> asdf </lastname>
 		<birthdate>1984-08-02</birthdate>
 	</user>
+	 <user name="test2" gender="male">
+                <password> asdf </password>
+                <firstname> asdf </firstname>
+                <lastname> asdf </lastname>
+                <birthdate>1984-08-03</birthdate>
+        </user>
 </users>
+<games>
+	<game>
+		<gamer></gamer>
+		<round><answers><player ref="test2"><answer/></player></answers></round>
+	</game>
+</games>
 </quiz>
